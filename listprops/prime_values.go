@@ -1,0 +1,33 @@
+package listprops
+
+// PrimeValues gibt erwartet eine Liste von Zahlen und liefert die Anzahl der Primzahlen in der Liste.
+func PrimeValues(list []int) int {
+	count := 0
+	// Hinweis:
+	// Verwenden Sie eine for-Schleife, um die Liste zu durchlaufen.
+	// Prüfen Sie in jeder Iteration, ob das aktuelle Element eine Primzahl ist.
+	// Schreiben Sie sich dazu ggf. eine Hilfsfunktion, z.B. "IsPrime".
+	// Erhöhen Sie den Zähler entsprechend.
+	// begin:solution
+	for _, el := range list {
+		if IsPrime(el) {
+			count++
+		}
+	}
+	// end:solution
+	return count
+}
+
+// IsPrime ist eine Hilfsfunktion, die prüft, ob eine Zahl eine Primzahl ist.
+// Liefert true, falls die Zahl eine Primzahl ist, sonst false.
+func IsPrime(n int) bool {
+	if n <= 1 {
+		return false
+	}
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
